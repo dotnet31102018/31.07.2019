@@ -1,0 +1,29 @@
+﻿<Window x:Class="FlightCenter3107.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlightCenter3107"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <local:MainWindowViewModel x:Key="vm"/>
+    </Window.Resources>
+    <WrapPanel Orientation="Vertical">
+
+        <Label Name = "ageLabel" Margin = "2" Grid.Row = "1">_Flight Number: </Label>
+        <TextBox Name = "ageText" Grid.Column = "1" Grid.Row = "1" Margin = "2" 
+         Text = "{Binding FlightNumber, Mode = TwoWay}"/>
+
+        <StackPanel Grid.Row = "2" Grid.ColumnSpan = "2">
+            <Button Content = "Find Flight..." Command="{ Binding SearchFlightCommand }" />
+        </StackPanel>
+
+        <Label Margin = "2" Grid.Row = "1" Content="{Binding MyFLight.Name}"/>
+
+        <Label Margin = "2" Grid.Row = "1" Content="{Binding MyFLight.Vacancy}"/>
+
+        <Button Content = "Buy Ticket" Command="{ Binding BuyCommand }" />
+
+    </WrapPanel>
+</Window>
