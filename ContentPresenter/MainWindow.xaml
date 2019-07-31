@@ -1,0 +1,34 @@
+﻿<Window x:Class="_3107_.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_3107_"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <DataTemplate x:Key="MyTemplate">
+            <TextBlock Text="{Binding Name}"  HorizontalAlignment="Left" Margin="106,102,0,0" VerticalAlignment="Top"/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <!-- 1 -->
+        <Label Content="{Binding obj.Name}" HorizontalAlignment="Left" Margin="96,66,0,0" 
+                VerticalAlignment="Top"/>
+
+        <!-- 2 -->
+        <ContentPresenter Content="{Binding obj}" >
+            <ContentPresenter.ContentTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Name}"  HorizontalAlignment="Left" Margin="106,102,0,0" VerticalAlignment="Top"/>
+                </DataTemplate>
+            </ContentPresenter.ContentTemplate>
+        </ContentPresenter>
+
+        <!-- 3 best way -->
+        <ContentPresenter Content="{Binding obj}" ContentTemplate="{StaticResource MyTemplate}">
+
+        </ContentPresenter>
+
+    </Grid>
+</Window>
